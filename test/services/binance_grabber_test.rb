@@ -1,8 +1,27 @@
 require 'test_helper'
 
+ANOTHER_UPDATE_TIME = "9999999999999"
+
 class BinanceGrabberTest < ActiveSupport::TestCase
-  test "fetch_account" do
+  test "Grabber should save new record if 'updateTime' of account was changed" do
     grabber = BinanceGrabber.new
     grabber.fetch_account
+    change_update_time
+    grabber.fetch_account
+    assert_equal RequestResult.all.count, 2
+  end
+
+  def self.change_update_time
+    #FIXME replace change time in DB on change time in stub service response
+    r = RequestResult.all.last
+    r.raw_data["updateTime"] = ANOTHER_UPDATE_TIME
+    r.save!
+  end
+
+  test "Grabber should'nt save new record if 'updateTime' of account was not changed" do
+    grabber = BinanceGrabber.new
+    grabber.fetch_account
+    grabber.fetch_account
+    assert_equal RequestResult.all.count, 1
   end
 end
