@@ -1,3 +1,11 @@
 test:
   binance_api_key: SQiaYJXxXAhwrRrmKrBbd05WGXriMxFGi1kTVFypinHVn4r3fCy4vWQNkqnSoD2w
   binance_secret_key: gLT5MtbGpAv7fBaf7AWtxEMYByaYZ2eR2pokPxqw0pCkFNC8z51eX5a9BplluLwp
+
+development:
+  binance_api_key: SQiaYJXxXAhwrRrmKrBbd05WGXriMxFGi1kTVFypinHVn4r3fCy4vWQNkqnSoD2w
+  binance_secret_key: gLT5MtbGpAv7fBaf7AWtxEMYByaYZ2eR2pokPxqw0pCkFNC8z51eX5a9BplluLwp
+
+production:
+  binance_api_key: SQiaYJXxXAhwrRrmKrBbd05WGXriMxFGi1kTVFypinHVn4r3fCy4vWQNkqnSoD2w
+  binance_secret_key: gLT5MtbGpAv7fBaf7AWtxEMYByaYZ2eR2pokPxqw0pCkFNC8z51eX5a9BplluLwp
