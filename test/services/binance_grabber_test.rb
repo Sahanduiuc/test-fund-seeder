@@ -8,7 +8,7 @@ class BinanceGrabberTest < ActiveSupport::TestCase
     grabber.fetch_account
     change_update_time
     grabber.fetch_account
-    assert_equal RequestResult.all.count, 2
+    assert_equal 2, RequestResult.all.count
   end
 
   def self.change_update_time
@@ -22,6 +22,6 @@ class BinanceGrabberTest < ActiveSupport::TestCase
     grabber = BinanceGrabber.new
     grabber.fetch_account
     grabber.fetch_account
-    assert_equal RequestResult.all.count, 1
+    assert_equal 1, RequestResult.all.count
   end
 end
