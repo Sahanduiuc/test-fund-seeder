@@ -6,3 +6,8 @@ AllCops:
     - script/**
 Documentation:
   Enabled: false
+Metrics/LineLength:
+  Max: 120
+  # If you want the rule not to apply to a specific folder/file
+  Exclude:
+    - db/schema.rb
