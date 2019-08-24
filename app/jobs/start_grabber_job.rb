@@ -1,7 +1,7 @@
 class StartGrabberJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    # Do something later
+  def perform(*_args)
+    BinanceGrabber.new.fetch_account
   end
 end

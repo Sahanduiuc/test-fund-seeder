@@ -1,7 +1,7 @@
 class StartParserJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    # Do something later
+  def perform(*_args)
+    BinanceParser.new.parse
   end
 end
