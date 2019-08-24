@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StartParserJob < ApplicationJob
   queue_as :default
 

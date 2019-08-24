@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StartGrabberJob < ApplicationJob
   queue_as :default
 
