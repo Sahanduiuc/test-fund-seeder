@@ -1,4 +1,3 @@
 test:
   binance_api_key: SQiaYJXxXAhwrRrmKrBbd05WGXriMxFGi1kTVFypinHVn4r3fCy4vWQNkqnSoD2w
-  binance_api_secret: gLT5MtbGpAv7fBaf7AWtxEMYByaYZ2eR2pokPxqw0pCkFNC8z51eX5a9BplluLwp
-  binance_api_base_endpoint: https://api.binance.com
+  binance_secret_key: gLT5MtbGpAv7fBaf7AWtxEMYByaYZ2eR2pokPxqw0pCkFNC8z51eX5a9BplluLwp

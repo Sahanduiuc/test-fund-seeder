@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class BinanceGrabberTest < ActiveSupport::TestCase
-  test "the truth" do
-    assert true
+  test "fetch_account" do
+    grabber = BinanceGrabber.new
+    grabber.fetch_account
   end
 end
