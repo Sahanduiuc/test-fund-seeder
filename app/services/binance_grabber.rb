@@ -8,8 +8,7 @@ class BinanceGrabber
     )
     account = client.account_info
     RequestResult.transaction do
-      # Lock the last record for consistency
-      # purposes when more than one grabber runs
+      # Lock the last record for consistency purposes when more than one grabber runs
       record = RequestResult.lock.last
       if record.blank? || record.raw_data['updateTime'] != account['updateTime']
         RequestResult.create!(raw_data: account)
