@@ -29,3 +29,6 @@
 
 # Ignore rubymine project files.
 .idea
+
+# Ignore test sqlite db files
+db/test.sqlite*
