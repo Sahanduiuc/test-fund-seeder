@@ -54,4 +54,15 @@ class BinanceGrabberTest < ActiveSupport::TestCase
     grabber.fetch_account
     assert_equal 1, RequestResult.all.count
   end
+
+  test 'Grabber should synchronize update RequestResult.last' do
+    grabber.fetch_account
+    client.update_time = ANOTHER_TIME
+    [
+      Thread.new { grabber.fetch_account },
+      Thread.new { grabber.fetch_account },
+      Thread.new { grabber.fetch_account }
+    ].map(&:join)
+    assert_equal 2, RequestResult.all.count
+  end
 end
