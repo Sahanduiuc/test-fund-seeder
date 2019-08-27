@@ -14,9 +14,16 @@ class AbstractRecurrentJob < ApplicationJob
     return if scheduled_next?
 
     self.class.set(wait: wait_period).perform_later
+    logger.info("#{self.class.name} scheduled next run after #{wait_period} seconds")
   end
+
+  private
 
   def wait_period
     1.hour
+  end
+
+  def logger
+    Delayed::Worker.logger
   end
 end

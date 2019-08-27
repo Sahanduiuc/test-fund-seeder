@@ -7,6 +7,13 @@ class BinanceParser
         (BigDecimal(balance['free']) + BigDecimal(balance['locked'])).positive?
       end
       rr.save!
+      logger.info("#{self.class.name} parsed #{rr.parsed_data.count} balances RequestResult.id = #{rr.id}")
     end
+  end
+
+  private
+
+  def logger
+    Delayed::Worker.logger
   end
 end
