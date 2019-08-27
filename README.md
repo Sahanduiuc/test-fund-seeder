@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby version
+2.6.3 
 
-Things you may want to cover:
+## Rails version
+6.0.0
 
-* Ruby version
+## Database creation
+```bash
+rake db:create
+rake db:migrate
+```
 
-* System dependencies
+## How to run the test suite
+```bash
+rake test
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Services
+```bash
+rake jobs:recurrent:start  # add recurrent jobs to queue
+rake jobs:work             # run jobs queue handler
+rake jobs:recurrent:stop   # remove recurrent jobs from queue
+```
