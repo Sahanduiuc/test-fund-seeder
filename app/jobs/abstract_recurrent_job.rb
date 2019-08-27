@@ -12,6 +12,7 @@ class AbstractRecurrentJob < ApplicationJob
 
   def schedule_next_run(*_args)
     return if scheduled_next?
+
     self.class.set(wait: wait_period).perform_later
   end
 
