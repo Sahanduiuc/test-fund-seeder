@@ -43,25 +43,25 @@ class BinanceGrabberServiceTest < ActiveSupport::TestCase
   end
 
   test "Grabber should save new record if 'updateTime' of account was changed" do
-    grabber.fetch_account
+    grabber.call
     client.update_time = ANOTHER_TIME
-    grabber.fetch_account
+    grabber.call
     assert_equal 2, RequestResult.all.count
   end
 
   test "Grabber should'nt save new record if 'updateTime' of account was not changed" do
-    grabber.fetch_account
-    grabber.fetch_account
+    grabber.call
+    grabber.call
     assert_equal 1, RequestResult.all.count
   end
 
   test 'Grabber should synchronize update RequestResult.last' do
-    grabber.fetch_account
+    grabber.call
     client.update_time = ANOTHER_TIME
     [
-      Thread.new { grabber.fetch_account },
-      Thread.new { grabber.fetch_account },
-      Thread.new { grabber.fetch_account }
+      Thread.new { grabber.call },
+      Thread.new { grabber.call },
+      Thread.new { grabber.call }
     ].map(&:join)
     assert_equal 2, RequestResult.all.count
   end

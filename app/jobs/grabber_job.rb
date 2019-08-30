@@ -4,7 +4,7 @@ class GrabberJob < AbstractRecurrentJob
   queue_as :grabber_queue
 
   def perform(*_args)
-    BinanceGrabberService.new.fetch_account
+    BinanceGrabberService.call
   end
 
   private

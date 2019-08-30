@@ -3,7 +3,11 @@
 class BinanceGrabberService
   attr_writer :client
 
-  def fetch_account
+  def self.call
+    new.call
+  end
+
+  def call
     account = client.account_info
     RequestResult.transaction do
       record = RequestResult.lock.last
