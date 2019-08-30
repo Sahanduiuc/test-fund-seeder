@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BinanceGrabber
+class BinanceGrabberService
   attr_writer :client
 
   def fetch_account

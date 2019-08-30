@@ -34,10 +34,10 @@ class StubClient
   end
 end
 
-class BinanceGrabberTest < ActiveSupport::TestCase
+class BinanceGrabberServiceTest < ActiveSupport::TestCase
   attr_accessor :grabber, :client
   setup do
-    @grabber = BinanceGrabber.new
+    @grabber = BinanceGrabberService.new
     @client = StubClient.new
     @grabber.client = @client
   end
