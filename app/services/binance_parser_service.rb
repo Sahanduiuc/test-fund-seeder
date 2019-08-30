@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BinanceParser
+class BinanceParserService
   def parse
     RequestResult.where(parsed_data: nil).find_each do |rr|
       rr.parsed_data = rr.raw_data['balances'].select do |balance|

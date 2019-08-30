@@ -4,7 +4,7 @@ class ParserJob < AbstractRecurrentJob
   queue_as :parser_queue
 
   def perform(*_args)
-    BinanceParser.new.parse
+    BinanceParserService.new.parse
   end
 
   private
