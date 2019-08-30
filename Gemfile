@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'binance', '~> 1.2'
 
 gem 'delayed_job_active_record', '~> 4.1'
+
+gem 'rspec-rails', '~> 3.8'
