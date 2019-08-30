@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ParserJob < AbstractRecurrentJob
+class BinanceParserJob < AbstractRecurrentJob
   queue_as :parser_queue
 
   def perform(*_args)
