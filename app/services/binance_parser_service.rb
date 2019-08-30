@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class BinanceParserService
-  def parse
+  def self.call
+    new.call
+  end
+
+  def call
     RequestResult.where(parsed_data: nil).find_each do |rr|
       rr.parsed_data = rr.raw_data['balances'].select do |balance|
         (BigDecimal(balance['free']) + BigDecimal(balance['locked'])).positive?
