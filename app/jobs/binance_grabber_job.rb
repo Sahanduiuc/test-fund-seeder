@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GrabberJob < AbstractRecurrentJob
+class BinanceGrabberJob < AbstractRecurrentJob
   queue_as :grabber_queue
 
   def perform(*_args)
