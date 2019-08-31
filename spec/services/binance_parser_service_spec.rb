@@ -5,20 +5,21 @@ require 'rails_helper'
 RSpec.describe BinanceParserService, type: :service do
   let(:request_result_grabbed_1) do
     RequestResult.create(
-      raw_data: {'balances' => balances}
+      raw_data: { 'balances' => balances }
     )
   end
 
   let(:request_result_grabbed_2) do
     RequestResult.create(
-      raw_data: {'balances' => balances}
+      raw_data: { 'balances' => balances }
     )
   end
 
   let(:request_result_parsed_3) do
     RequestResult.create(
-      raw_data: {'balances' => balances},
-      parsed_data: previously_parsed_balances)
+      raw_data: { 'balances' => balances },
+      parsed_data: previously_parsed_balances
+    )
   end
 
   let(:balances) do
