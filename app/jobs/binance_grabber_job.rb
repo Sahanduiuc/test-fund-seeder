@@ -5,6 +5,7 @@ class BinanceGrabberJob < AbstractRecurrentJob
 
   def perform(*_args)
     BinanceGrabberService.call
+    BinanceParserJob.perform_later
   end
 
   private
