@@ -14,7 +14,7 @@ rake db:migrate
 
 ## How to run the test suite
 ```bash
-rake test
+rspec
 ```
 
 ## Services
