@@ -10,5 +10,8 @@ Metrics/LineLength:
   Max: 120
   Exclude:
     - db/schema.rb
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
 Metrics/AbcSize:
   Enabled: false
