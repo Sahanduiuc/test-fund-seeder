@@ -3,10 +3,25 @@
 require 'rails_helper'
 
 RSpec.describe BinanceParserService, type: :service do
-  let(:request_result_grabbed_1) { RequestResult.create(raw_data: {'balances' => balances}) }
-  let(:request_result_grabbed_2) { RequestResult.create(raw_data: {'balances' => balances}) }
-  let(:request_result_parsed_3) { RequestResult.create(raw_data: {'balances' => balances}, parsed_data: previously_parsed_balances) }
-  let(:balances) {
+  let(:request_result_grabbed_1) do
+    RequestResult.create(
+      raw_data: {'balances' => balances}
+    )
+  end
+
+  let(:request_result_grabbed_2) do
+    RequestResult.create(
+      raw_data: {'balances' => balances}
+    )
+  end
+
+  let(:request_result_parsed_3) do
+    RequestResult.create(
+      raw_data: {'balances' => balances},
+      parsed_data: previously_parsed_balances)
+  end
+
+  let(:balances) do
     [
       {
         'asset' => 'BTC',
@@ -24,19 +39,21 @@ RSpec.describe BinanceParserService, type: :service do
         'locked' => '0.00000000'
       }
     ].freeze
-  }
-  let(:not_empty_balances) {
+  end
+
+  let(:not_empty_balances) do
     balances[0..1]
-  }
-  let(:previously_parsed_balances) {
+  end
+
+  let(:previously_parsed_balances) do
     [
       'previously parsed balances'
     ]
-  }
+  end
 
   subject { BinanceParserService.call }
 
-  it "Parser should save balances array only but without zero values" do
+  it 'Parser should save balances array only but without zero values' do
     request_result_grabbed_1.reload
     request_result_grabbed_2.reload
     subject
@@ -46,7 +63,7 @@ RSpec.describe BinanceParserService, type: :service do
     expect(request_result_grabbed_2.parsed_data).to eq(not_empty_balances)
   end
 
-  it "Parser should parse only non-parser RequestResult records" do
+  it 'Parser should parse only non-parser RequestResult records' do
     request_result_parsed_3.reload
     subject
     request_result_parsed_3.reload
