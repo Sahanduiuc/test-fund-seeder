@@ -49,13 +49,13 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
   gem 'rspec-rails', '~> 3.8'
-  gem "webmock", "~> 3.7"
-  gem "vcr", "~> 5.0"
+  gem 'vcr', '~> 5.0'
+  gem 'webdrivers'
+  gem 'webmock', '~> 3.7'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'binance', '~> 1.2'
 gem 'delayed_job_active_record', '~> 4.1'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
